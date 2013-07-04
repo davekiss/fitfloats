@@ -12,7 +12,7 @@
 
       var new_width;
 
-      var max_items_per_row = Math.floor(container_width / item_width);
+      var max_items_per_row = Math.floor(parent_width / item_width);
 
       if (number_of_items < max_items_per_row)
       {
@@ -24,12 +24,16 @@
       }
 
       if (parent_width > container_width + item_width && number_of_items > max_items_per_row)
+      {
         new_width = new_width + item_width;
+      }
 
       container.width(new_width);
     }
 
-    change_container_size(container);
+    $(window).load(function(){
+      change_container_size(container);
+    });
 
     $(window).resize(function() {
       change_container_size(container);
